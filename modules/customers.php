@@ -6,7 +6,7 @@ $edit_customer = null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['add_customer'])) {
-        // Add new customer
+        // adding new customers
         $name = $_POST['name'];
         $email = $_POST['email'];
         $phone = $_POST['phone'];
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (isset($_POST['edit_customer'])) {
-        // Update existing customer
+        // updating existing customers
         $id = $_POST['id'];
         $name = $_POST['name'];
         $email = $_POST['email'];
@@ -29,17 +29,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (isset($_POST['delete_customer'])) {
-        // Delete customer
+        // deleting customer
         $id = $_POST['id'];
         $query = "DELETE FROM customers WHERE id = $id";
         $conn->query($query);
     }
 }
 
-// Fetch customers
+// getting data from customers
 $customers = $conn->query("SELECT * FROM customers");
 
-// Handle edit request
+// handling edit request
 if (isset($_GET['edit_id'])) {
     $edit_id = $_GET['edit_id'];
     $edit_customer = $conn->query("SELECT * FROM customers WHERE id = $edit_id")->fetch_assoc();

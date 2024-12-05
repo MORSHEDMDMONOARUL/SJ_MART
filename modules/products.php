@@ -6,7 +6,7 @@ $edit_product = null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['add_product'])) {
-        // Add new product
+        // adding new product
         $name = $_POST['name'];
         $category_id = $_POST['category_id'];
         $price = $_POST['price'];
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (isset($_POST['edit_product'])) {
-        // Update existing product
+        // updating existing product
         $id = $_POST['id'];
         $name = $_POST['name'];
         $category_id = $_POST['category_id'];
@@ -31,21 +31,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (isset($_POST['delete_product'])) {
-        // Delete product
+        // deleting product
         $id = $_POST['id'];
         $query = "DELETE FROM products WHERE id = $id";
         $conn->query($query);
     }
 }
 
-// Fetch products
+// getting data from products
 $products = $conn->query("SELECT products.*, categories.name AS category_name FROM products 
                           LEFT JOIN categories ON products.category_id = categories.id");
 
-// Fetch categories for dropdown
+// getting data for categories for dropdown
 $categories = $conn->query("SELECT * FROM categories");
 
-// Handle edit request
+// handling edit request
 if (isset($_GET['edit_id'])) {
     $edit_id = $_GET['edit_id'];
     $edit_product = $conn->query("SELECT * FROM products WHERE id = $edit_id")->fetch_assoc();

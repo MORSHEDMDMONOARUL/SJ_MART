@@ -4,7 +4,7 @@ include '../templates/header.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['add_user'])) {
-        // Add user logic
+        // adding users logic / adding users
         $username = $_POST['username'];
         $password = $_POST['password'];
         $role = $_POST['role'];
@@ -14,14 +14,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (isset($_POST['delete_user'])) {
-        // Delete user logic
+        // deleting user logic / deleting users
         $id = $_POST['id'];
         $query = "DELETE FROM users WHERE id = $id";
         $conn->query($query);
     }
 }
 
-// Fetch users
+// getting all users from database
 $users = $conn->query("SELECT * FROM users");
 ?>
 

@@ -1,4 +1,4 @@
-</div> <!-- Close content div -->
+</div> 
     <footer>
         <p>&copy; <?= date('Y') ?> SJ MART - MORSHED</p>
     </footer>

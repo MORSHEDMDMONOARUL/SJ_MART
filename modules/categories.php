@@ -6,7 +6,7 @@ $edit_category = null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['add_category'])) {
-        // Add new category
+        // adding new category
         $name = $_POST['name'];
         $description = $_POST['description'];
         $query = "INSERT INTO categories (name, description) VALUES ('$name', '$description')";
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (isset($_POST['edit_category'])) {
-        // Update existing category
+        // updating exesting category
         $id = $_POST['id'];
         $name = $_POST['name'];
         $description = $_POST['description'];
@@ -23,17 +23,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (isset($_POST['delete_category'])) {
-        // Delete category
+        // deleting category
         $id = $_POST['id'];
         $query = "DELETE FROM categories WHERE id = $id";
         $conn->query($query);
     }
 }
 
-// Fetch categories
+// getting data from categories
 $categories = $conn->query("SELECT * FROM categories");
 
-// Handle edit request
+// handling edit requests
 if (isset($_GET['edit_id'])) {
     $edit_id = $_GET['edit_id'];
     $edit_category = $conn->query("SELECT * FROM categories WHERE id = $edit_id")->fetch_assoc();

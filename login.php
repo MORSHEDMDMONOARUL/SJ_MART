@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['user'] = $result->fetch_assoc();
         header('Location: dashboard.php');
     } else {
-        $error = "Invalid username or password.";
+        $error = "Invalid username or password try again.";
     }
 }
 ?>

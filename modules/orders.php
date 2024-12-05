@@ -4,7 +4,7 @@ include '../templates/header.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['add_order'])) {
-        // Add new order
+        // adding order to database
         $customer_id = $_POST['customer_id'];
         $order_date = $_POST['order_date'];
         $status = $_POST['status'];
@@ -15,14 +15,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (isset($_POST['delete_order'])) {
-        // Delete order
+        // deleting order from database
         $id = $_POST['id'];
         $query = "DELETE FROM orders WHERE id = $id";
         $conn->query($query);
     }
 
     if (isset($_POST['update_status'])) {
-        // Update order status
+        // updating order status
         $id = $_POST['id'];
         $status = $_POST['status'];
         $query = "UPDATE orders SET status='$status' WHERE id=$id";
@@ -30,12 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Fetch orders
+// getting data from orders
 $orders = $conn->query("SELECT orders.*, customers.name AS customer_name 
                         FROM orders 
                         LEFT JOIN customers ON orders.customer_id = customers.id");
 
-// Fetch customers for dropdown
+// getting customers for dropdown
 $customers = $conn->query("SELECT * FROM customers");
 ?>
 

@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="/SJ_MART/assets/css/styles.css">
 </head>
 <body>
-    <div class="sidebar">
+<!--sidebar menu for dashboard quick access-->
+    <div class="sidebar"> 
         <h1>SJ MART - MORSHED</h1>
         <ul>
             <li><a href="/SJ_MART/dashboard.php"><span class="material-icons">home</span> Dashboard</a></li>

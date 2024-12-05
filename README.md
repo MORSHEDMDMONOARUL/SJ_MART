@@ -26,7 +26,6 @@ designed to help businesses easily manage products, categories, customers, order
 - **Server**:
   - WAMP Server (Windows) any version is okay!
 
--
 
 ## Setup instructions
 Follow these steps to install the "SJ MART" project on your machine:

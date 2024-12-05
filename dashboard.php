@@ -7,16 +7,16 @@ if (!isset($_SESSION['user'])) {
 include 'config/db.php';
 include 'templates/header.php';
 
-// Fetch data from the database
+// getting data from the database
 $total_categories = $conn->query("SELECT COUNT(*) AS count FROM categories")->fetch_assoc()['count'];
 $total_products = $conn->query("SELECT COUNT(*) AS count FROM products")->fetch_assoc()['count'];
 $total_customers = $conn->query("SELECT COUNT(*) AS count FROM customers")->fetch_assoc()['count'];
 $total_orders = $conn->query("SELECT COUNT(*) AS count FROM orders")->fetch_assoc()['count'];
 ?>
     <h2>Welcome to SJ MART Dashboard</h2>
-    <p>This is the management dashboard where you can manage categories, products, users, customers, and orders efficiently.</p>
+    <p>Here you can manage categories, products, users, customers, and orders efficiently.</p>
     
-    <!-- Overview Section -->
+    <!-- overview section to check all at once -->
     <div class="overview">
         <div class="card">
             <h2><?= $total_categories ?></h2>
